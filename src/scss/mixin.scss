@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+$white : #ffffff;
+$black : #333333;
+
+@mixin font_size($fontSize, $baseFontSize:14){
+  font-size: percentage($fontSize / $baseFontSize);
+}
+@mixin clearfix {
+  min-height: 1px;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
