@@ -5,8 +5,8 @@
   基礎要素・汎用class
 ------------------------------------------------------------------ */
 ::selection{
-  background: $black;
-  color: $white;
+  background: #333;
+  color: #fff;
 }
 html {
   height: 100%;
@@ -25,4 +25,15 @@ a {
   &:hover {
     text-decoration: none;
   }
+}
+.page {
+  position: relative;
+  z-index: 100000;
+}
+.background-canvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

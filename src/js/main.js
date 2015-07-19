@@ -21,7 +21,7 @@ var light;
 var ball;
 
 var initThree = function() {
-  canvas = document.getElementById('canvas');
+  canvas = document.getElementById('background-canvas');
   renderer = new THREE.WebGLRenderer({
     antialias: true
   });
@@ -36,9 +36,11 @@ var initThree = function() {
 };
 
 var init = function() {
-  var ballGeometry = new THREE.DodecahedronGeometry(10, 3);
-  var ballMaterial = new THREE.MeshPhongMaterial({
-    color: 0xffffff
+  var ballGeometry = new THREE.DodecahedronGeometry(5000, 1);
+  var ballMaterial = new THREE.MeshLambertMaterial({
+    color: 0xffffff,
+    side: THREE.BackSide,
+    shading: THREE.FlatShading
   });
 
   initThree();
@@ -47,7 +49,7 @@ var init = function() {
   camera.init(get.radian(20), get.radian(0), bodyWidth, bodyHeight);
   
   light = new HemiLight();
-  light.init(scene, get.radian(30), get.radian(60), 1000, 0xeeeeff, 0x777700, 1);
+  light.init(scene, get.radian(0), get.radian(270), 1000, 0xffffff, 0xcccccc, 1);
   
   ball = new Mesh();
   ball.init(scene, ballGeometry, ballMaterial);
@@ -61,6 +63,7 @@ var init = function() {
 
 var render = function() {
   renderer.clear();
+  ball.updateVertices();
   renderer.render(scene, camera.obj);
 };
 
