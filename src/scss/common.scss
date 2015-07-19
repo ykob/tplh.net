@@ -13,8 +13,16 @@ html {
   overflow-y: scroll;
 }
 body {
-  min-width: 1020px;
+  min-width: 100%;
   min-height: 100%;
+  box-sizing: border-box;
   overflow: hidden;
+  padding: 2em;
   -webkit-text-size-adjust: none;
+  font-family: 'Source Code Pro';
+}
+a {
+  &:hover {
+    text-decoration: none;
+  }
 }
