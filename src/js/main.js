@@ -28,7 +28,7 @@ var initThree = function() {
   if (!renderer) {
     alert('Three.jsの初期化に失敗しました。');
   }
-  renderer.setSize(bodyWidth, bodyHeight);
+  renderer.setSize(bodyWidth * 2, bodyHeight * 2);
   canvas.appendChild(renderer.domElement);
   renderer.setClearColor(0xeeeeee, 1.0);
   
@@ -76,7 +76,7 @@ var renderloop = function() {
 var resizeRenderer = function() {
   bodyWidth  = document.body.clientWidth;
   bodyHeight = document.body.clientHeight;
-  renderer.setSize(bodyWidth, bodyHeight);
+  renderer.setSize(bodyWidth * 2, bodyHeight * 2);
   camera.init(get.radian(20), get.radian(0), bodyWidth, bodyHeight);
 };
 
