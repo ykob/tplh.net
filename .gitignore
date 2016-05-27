@@ -1,8 +1,9 @@
-*.sublime-project
-*.sublime-workspace
-.sass-cache/
-ignore
+.DS_Store
 node_modules
-npm-debug.log
-dst/css
-dst/js
+ignore
+dst/css/**/*
+dst/js/**/*
+dst/**/*.json
+dst/**/*.html
+build/**/*
+.sass-cache

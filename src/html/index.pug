@@ -1,0 +1,52 @@
+- var media = 'pc';
+- var meta_title = '';
+- var meta_description = 'yoichi kobayashi / front-end engineer in tokyo, japan. enjoying the programming of html5 canvas and webgl.';
+- var meta_path = "/";
+- var meta_ogp_img = "meta-img.jpg"
+
+doctype html
+html(lang="ja")
+  head
+    include ./modules/_head.pug
+  body.index
+    .l-page
+      include ./modules/_l-gh.pug
+      h1.p-index-contents__title
+        |tplh.net
+      h2.p-index-contents__my-name
+        |yoichi kobayashi
+      p.p-index-contents__summary
+        |I'm creative coder wannabe. live in tokyo, japan.
+        br
+        |enjoying the programming of HTML5 Canvas and WebGl.
+      p.p-index-contents__mailto
+        a(href="mailto:&#105;&#110;&#102;&#111;&#64;&#116;&#112;&#108;&#104;&#46;&#110;&#101;&#116;")
+          |&#105;&#110;&#102;&#111;&#64;&#116;&#112;&#108;&#104;&#46;&#110;&#101;&#116;
+      ul.p-index-contents__account-list
+        li.p-index-contents__account-list-item
+          a(href="http://ykob.github.io/sketch-threejs/", target="_blank")
+            |sketch of three.js
+        li.p-index-contents__account-list-item
+          a(href="http://www.jstarted.com/", target="_blank")
+            |weblog
+        li.p-index-contents__account-list-item
+          a(href="http://codepen.io/ykob/", target="_blank")
+            |CodePen
+        li.p-index-contents__account-list-item
+          a(href="https://github.com/ykob", target="_blank")
+            |GitHub
+        li.p-index-contents__account-list-item
+          a(href="http://www.flickr.com/photos/goodmorning_ek/", target="_blank")
+            |flickr
+        li.p-index-contents__account-list-item
+          a(href="https://www.facebook.com/ykob1984", target="_blank")
+            |Facebook
+        li.p-index-contents__account-list-item
+          a(href="https://twitter.com/ykob0123", target="_blank")
+            |Twitter
+        li.p-index-contents__account-list-item
+          a(href="https://filmarks.com/user/ykob", target="_blank")
+            |Filmarks
+
+      include ./modules/_l-gf.pug
+    include ./modules/_script.pug

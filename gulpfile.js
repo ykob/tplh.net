@@ -1,34 +1,46 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var sequence = require('gulp-sequence');
-var requireDir = require('require-dir');
-var CONFIG = require('./package.json').projectConfig;
-var reload = browserSync.reload;
+const gulp = require('gulp');
+const requireDir = require('require-dir');
+const runSequence = require('run-sequence');
+const browserSync = require('browser-sync');
+const reload = browserSync.reload;
 
-requireDir('./tasks');
+const DIR = require('./gulp/conf').DIR;
 
-gulp.task('serve', function() {
-  var obj = {};
-  
-  return browserSync({
-    server: {
-      baseDir: './',
-      index: CONFIG.DST + CONFIG.PATH + '/index.html',
-      routes: (
-        obj['' + CONFIG.PATH] = '' + CONFIG.DST + CONFIG.PATH + '/',
-        obj
-      )
-    }
-  });
+requireDir('./gulp/tasks');
+
+gulp.task('predefault', cb => {
+  runSequence(
+    ['pug', 'sass', 'watchify', 'copy-vendor-script'],
+    'serve',
+    cb
+  );
 });
 
-gulp.task('start', sequence([
-  'sass',
-  'browserify'
-], 'serve'));
+gulp.task('default', ['predefault'], () => {
+  gulp.watch(
+    [`./${DIR.SRC}/**/*.pug`],
+    ['pug', reload]
+  );
 
-gulp.task('default', ['start'], function() {
-  gulp.watch(['./' + CONFIG.DST + '/**/*.html'], [reload]);
-  gulp.watch(['./' + CONFIG.SRC + '/**/*.{scss,sass}'], ['sass', reload]);
-  gulp.watch(['./' + CONFIG.SRC + '/**/*.js'], ['browserify', reload]);
+  gulp.watch(
+    [`./${DIR.SRC}/**/*.{scss,sass}`],
+    ['sass', reload]
+  );
+
+  gulp.watch(
+    [`./${DIR.DEST}/**/*.js`],
+    reload
+  );
+});
+
+gulp.task('build', cb => {
+  runSequence(
+    'clean',
+    ['pug', 'sass'],
+    'replace-html',
+    ['minify-css', 'browserify', 'imagemin'],
+    'uglify',
+    'copy-vendor-script-to-build',
+    cb
+  );
 });
