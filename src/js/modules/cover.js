@@ -1,5 +1,5 @@
-import THREE from ('three');
-import glslify from ('glslify');
+import THREE from 'three';
+import glslify from 'glslify';
 
 export default class Cover {
   constructor(canvas) {
