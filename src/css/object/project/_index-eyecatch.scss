@@ -1,0 +1,32 @@
+$fontsize_title: 6;
+$fontsize_name: 2.5;
+
+.p-index-eyecatch {
+  text-align: center;
+  &__title {
+    line-height: 1.1;
+    margin: 0;
+    font-size: #{$fontsize_title}vw;
+    font-weight: 400;
+    letter-spacing: 4px;
+    @include l-lg {
+      font-size: $break-point-lg / 100 * $fontsize_title;
+    }
+    @include l-xs {
+      font-size: $break-point-sm / 100 * $fontsize_title;
+    }
+  }
+  &__my-name {
+    line-height: 1.1;
+    font-size: #{$fontsize_name}vw;
+    font-weight: 400;
+    letter-spacing: 3px;
+    @include l-lg {
+      font-size: $break-point-lg / 100 * $fontsize_name;
+    }
+    @include l-xs {
+      font-size: $break-point-sm / 100 * $fontsize_name;
+    }
+  }
+  &__summary {}
+}
