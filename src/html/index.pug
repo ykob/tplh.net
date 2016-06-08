@@ -9,6 +9,7 @@ html(lang="ja")
     include ./modules/_head.pug
   body.index
     .l-page
+      include ./modules/_l-gh.pug
       .p-index-eyecatch
         h1.p-index-eyecatch__title
           |tplh.net
@@ -18,7 +19,9 @@ html(lang="ja")
           |I'm creative coder wannabe live in tokyo, japan.
           br
           |enjoying the programming of HTML5 Canvas and WebGl.
-
+      .c-works
+        h2.c-works__head
+          |works
       include ./modules/_l-gf.pug
     include ./modules/_canvas.pug
     include ./modules/_script.pug
