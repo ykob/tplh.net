@@ -1,0 +1,17 @@
+mixin works-item(data)
+  .c-works__item
+    a(href=`/works/${data.id}.html`)
+      div.c-works__item-thumb
+        img.c-works__item-thumb-img(src=`/img/works/thumb_${data.id}.jpg`)
+      p.c-works__item-summary
+        |#{data.text}
+
+.c-works
+  h2.c-works__head
+    |works
+  for (var i = 0; i < 3; i++) {
+    +works-item({
+      id: 'test',
+      text: 'testtest'
+    })
+  }
