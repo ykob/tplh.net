@@ -1,11 +1,11 @@
 const gulp = require('gulp');
 
 const $ = require('../plugins');
-const conf = require('../conf').minify_css;
+const conf = require('../conf').cleanCss;
 
-gulp.task('minify-css', () => {
+gulp.task('cleanCss', () => {
   return gulp.src(conf.src)
-    .pipe($.minifyCss())
+    .pipe($.cleanCss())
     .pipe($.rename({suffix: '.min'}))
     .pipe(gulp.dest(conf.dest));
 });

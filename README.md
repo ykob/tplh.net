@@ -1,14 +1,5 @@
-# tplh.net
+# demofiles
+it is my basic files for three.js demo.  
+https://ykob.github.io/demofiles
 
-http://www.tplh.net/
-
-## yoichi kobayashi
-
-front-end engineer in tokyo, japan.  
-enjoying the programming of html5 canvas and webgl.
-
-## npm i
-
-```
-npm i browser-sync browserify gulp gulp-ruby-sass gulp-sequence require-dir vinyl-source-stream watchify
-```
+# ![capture](http://ykob.github.io/demofiles/img/capture.jpg)
