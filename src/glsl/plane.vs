@@ -20,7 +20,7 @@ void main(void) {
     noise1 * sin1 * 8.0
     + noise2 * sin1 * 8.0
     + noise3 * 1.2
-    + pow(abs(sin1), 2.0) * 48.0, 0.0);
+    + pow(abs(sin1), 2.0) * 40.0, 0.0);
 
   vPosition = lastPosition;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(lastPosition, 1.0);

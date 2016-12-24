@@ -18,7 +18,6 @@ export default class Plane {
         uniforms: this.uniforms,
         vertexShader: glslify('../../glsl/plane.vs'),
         fragmentShader: glslify('../../glsl/plane.fs'),
-        wireframe: true,
         transparent: true
       })
     );
