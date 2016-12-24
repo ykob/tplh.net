@@ -82,3 +82,14 @@
     @content;
   }
 }
+
+//
+// Animation
+//
+@mixin animateCrossUnderline($duration: 0.4s, $fill: none) {
+  animation-name: crossUnderline;
+  animation-duration: $duration;
+  animation-iteration-count: 1;
+  animation-fill-mode: $fill;
+  animation-timing-function: $easeOutCubic;
+}

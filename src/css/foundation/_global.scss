@@ -5,7 +5,10 @@ body {
   min-height: 100%;
   overflow: hidden;
   color: $color-text;
-  font-family: "Noto Sans";
+  font-family: 'Ropa Sans';
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
 }
 a {
   color: $color-text;

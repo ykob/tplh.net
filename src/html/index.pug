@@ -1,12 +1,11 @@
 -
-  var repositoryName = 'demofiles';
-  var websiteDomain = 'https://ykob.github.io/' + repositoryName;
-  var themeColor = '#ffffff';
+  var websiteDomain = 'http://www.tplh.net';
+  var themeColor = '#111111';
 
-  var metaTitle = 'demo title';
-  var metaKeywords = 'WebGL, three.js';
-  var metaDescription = 'it is my basic files for three.js demo.';
-  var metaOgpImg = 'share.jpg';
+  var metaTitle = 'yoichi kobayashi | www.tplh.net';
+  var metaKeywords = 'yoichi kobayashi';
+  var metaDescription = 'I am a front-end engineer. I wanna be a creative coder.';
+  var metaOgpImg = 'ogp.jpg';
   var metaOgpDescription = metaDescription;
 
 doctype html
@@ -38,14 +37,25 @@ html(lang="ja")
     meta(name="twitter:image", content=websiteDomain + '/img/' + metaOgpImg)
 
   body
-    .p-contents-summary
-      h1.p-contents-summary__head
-        |#{metaTitle}
-      p.p-contents-summary__text
-        |#{metaDescription}
-      p.p-contents-summary__link-source
-        a(href="https://github.com/ykob/"+repositoryName)
-          |view source.
+    .p-index-header
+      h1.p-index-header__name
+        |Yoichi Kobayashi
+      h2.p-index-header__url
+        |www.tplh.net
+      p.p-index-header__excerpt
+        |I am a front-end engineer.
+        |I wanna be a creative coder.
+      .p-index-header__link
+        a(href="http://ykob.github.io/sketch-threejs/")
+          |Sketch
+        a(href="http://codepen.io/ykob/")
+          |CodePen
+        a(href="https://github.com/ykob")
+          |GitHub
+        a(href="https://www.facebook.com/ykob1984")
+          |Facebook
+        a(href="https://twitter.com/ykob0123")
+          |Twitter
     canvas(id="canvas-webgl", class="p-canvas-webgl")
     script(src="./js/vendor.js")
     script(src="./js/main.js")
