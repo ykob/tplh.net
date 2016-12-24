@@ -1,5 +1,4 @@
 import PostEffect from './modules/PostEffect.js';
-import Sphere from './modules/Sphere.js';
 import Plane from './modules/Plane.js';
 
 const canvas = document.getElementById('canvas-webgl');
@@ -16,7 +15,6 @@ const clock = new THREE.Clock();
 const stats = new Stats();
 
 const postEffect = new PostEffect(renderBack.texture);
-const sphere = new Sphere();
 const plane = new Plane();
 
 const resizeWindow = () => {
@@ -26,25 +24,11 @@ const resizeWindow = () => {
   cameraBack.updateProjectionMatrix();
   renderBack.setSize(window.innerWidth, window.innerHeight);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  sphere.resize();
 }
-const setEvent = () => {
+const on = () => {
   $(window).on('resize', () => {
     resizeWindow();
   });
-}
-const initDatGui = () => {
-  const gui = new dat.GUI();
-  const controller = {
-    radius: gui.add(sphere, 'radius', 0, 1000).name('Sphere Radius')
-  }
-  controller.radius.onChange((value) => {
-    sphere.mesh.material.uniforms.radius.value = value;
-  });
-}
-const initStats = () => {
-  stats.showPanel(0);
-  document.body.appendChild(stats.dom);
 }
 const render = () => {
   plane.render(clock.getDelta());
@@ -68,9 +52,7 @@ const init = () => {
   scene.add(postEffect.mesh);
   sceneBack.add(plane.mesh);
 
-  setEvent();
-  initDatGui();
-  initStats();
+  on();
   resizeWindow();
   renderLoop();
 }
