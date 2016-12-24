@@ -12,7 +12,6 @@ const sceneBack = new THREE.Scene();
 const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 const cameraBack = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 const clock = new THREE.Clock();
-const stats = new Stats();
 
 const postEffect = new PostEffect(renderBack.texture);
 const plane = new Plane();
@@ -37,17 +36,15 @@ const render = () => {
   renderer.render(scene, camera);
 }
 const renderLoop = () => {
-  stats.begin();
   render();
-  stats.end();
   requestAnimationFrame(renderLoop);
 }
 
 const init = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0xeeeeee, 1.0);
-  cameraBack.position.set(0, 10, 128);
-  cameraBack.lookAt(new THREE.Vector3(0, 25, 0));
+  cameraBack.position.set(0, 16, 128);
+  cameraBack.lookAt(new THREE.Vector3(0, 28, 0));
 
   scene.add(postEffect.mesh);
   sceneBack.add(plane.mesh);
