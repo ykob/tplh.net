@@ -19,8 +19,8 @@ void main(void) {
   vec3 lastPosition = updatePosition + vec3(0.0,
     noise1 * sin1 * 8.0
     + noise2 * sin1 * 8.0
-    + noise3 * 1.2
-    + pow(abs(sin1), 2.0) * 40.0, 0.0);
+    + noise3 * (abs(sin1) * 2.0 + 0.5)
+    + pow(sin1, 2.0) * 40.0, 0.0);
 
   vPosition = lastPosition;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(lastPosition, 1.0);
