@@ -25,9 +25,9 @@ const resizeWindow = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 const on = () => {
-  $(window).on('resize', () => {
+  window.addEventListener('resize', () => {
     resizeWindow();
-  });
+  })
 }
 const render = () => {
   plane.render(clock.getDelta());
