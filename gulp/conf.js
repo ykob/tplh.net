@@ -136,6 +136,15 @@ module.exports.copy = {
     opts: {
       base: `${DIR.DEST}${DIR.PATH}`
     }
+  },
+  php: {
+    src: [
+      `${DIR.SRC}/html/**/sendmail.php`,
+    ],
+    dest: `${DIR.BUILD}${DIR.PATH}`,
+    opts: {
+      base: `${DIR.SRC}/html/`
+    }
   }
 };
 
