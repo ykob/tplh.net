@@ -1,5 +1,8 @@
+import ConsoleSignature from './modules/ConsoleSignature.js';
 import PostEffect from './modules/PostEffect.js';
 import Plane from './modules/Plane.js';
+
+const consoleSignature = new ConsoleSignature();
 
 const canvas = document.getElementById('canvas-webgl');
 const renderer = new THREE.WebGLRenderer({
