@@ -7,13 +7,14 @@ export default class ConsoleSignature {
   show() {
     if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
       const args = [
-        `\n %c ${this.message} %c ${this.url} \n\n`,
-        'color: #ff66a5; background: #030307; padding:5px 0;',
-        'background: #ff66a5; padding:5px 0;',
+        `\n%c ${this.message} %c%c ${this.url} \n\n`,
+        'color: #fff; background: #222; padding:3px 0;',
+        'padding:3px 1px;',
+        'color: #fff; background: #d44; padding:3px 0;',
       ];
       console.log.apply(console, args);
     } else if (window.console) {
-      console.log(`${this.message} - ${this.url}`);
+      console.log(`${this.message} ${this.url}`);
     }
   }
 }
