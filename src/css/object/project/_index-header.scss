@@ -90,4 +90,39 @@
       }
     }
   }
+  &__contact {
+    margin-top: 3em;
+    letter-spacing: 0.2em;
+    @include l-more-than-mobile {
+      @include fontSize(14);
+    }
+    @include l-mobile {
+      @include fontSize(12);
+    }
+    a {
+      display: inline-block;
+      position: relative;
+    }
+    svg {
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+    &-label {
+      display: inline-block;
+      &:after {
+        width: 100%;
+        height: 1px;
+        content: '';
+        display: block;
+        margin-top: 2px;
+        background-color: #111;
+        animation-name: none;
+      }
+    }
+    a:hover & {
+      &-label:after {
+        @include animateCrossUnderline(0.4s, both);
+      }
+    }
+  }
 }
