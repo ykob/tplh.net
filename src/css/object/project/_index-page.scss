@@ -1,0 +1,14 @@
+.p-index-page {
+  position: absolute;
+  right: 0; bottom: 0; left: 0;
+  z-index: 10;
+  @include l-more-than-mobile {
+    top: 20%;
+    padding: 0 5%;
+    text-align: center;
+  }
+  @include l-mobile {
+    top: 0;
+    padding: 10% 5%;
+  }
+}

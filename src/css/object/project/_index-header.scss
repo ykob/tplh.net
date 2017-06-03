@@ -1,22 +1,4 @@
 .p-index-header {
-  position: absolute;
-  right: 0; bottom: 0; left: 0;
-  z-index: 10;
-  @include l-more-than-mobile {
-    top: 20%;
-    padding: 0 5%;
-    text-align: center;
-  }
-  @include l-mobile {
-    top: 0;
-    padding: 10% 5%;
-  }
-  &__wrap {
-    width: 100%;
-    @include l-more-than-mobile {
-      margin-bottom: 10em;
-    }
-  }
   &__name {
     text-transform: uppercase;
     letter-spacing: 0.36em;
@@ -37,92 +19,6 @@
     }
     @include l-mobile {
       @include fontSize(14);
-    }
-  }
-  &__excerpt {
-    line-height: 1.75;
-    letter-spacing: 0.2em;
-    margin: 3em 0;
-    padding-left: 0.2em;
-    @include l-more-than-mobile {
-      @include fontSize(16);
-    }
-    @include l-mobile {
-      @include fontSize(14);
-    }
-  }
-  &__link {
-    display: flex;
-    flex-wrap: wrap;
-    @include l-more-than-mobile {
-      justify-content: center;
-    }
-    @include l-mobile {
-      padding-right: 30%;
-    }
-    a {
-      display: block;
-      letter-spacing: 0.2em;
-      padding-left: 0.2em;
-      @include l-more-than-mobile {
-        margin: 0 1em 0.5em;
-        @include fontSize(14);
-      }
-      @include l-mobile {
-        margin-right: 1.5em;
-        margin-bottom: 1em;
-        @include fontSize(12);
-        text-align: left;
-      }
-      &:after {
-        width: 100%;
-        height: 1px;
-        content: '';
-        display: block;
-        margin-top: 2px;
-        background-color: #111;
-        animation-name: none;
-      }
-      &:hover {
-        &:after {
-          @include animateCrossUnderline(0.4s, both);
-        }
-      }
-    }
-  }
-  &__contact {
-    margin-top: 3em;
-    letter-spacing: 0.2em;
-    @include l-more-than-mobile {
-      @include fontSize(14);
-    }
-    @include l-mobile {
-      @include fontSize(12);
-    }
-    a {
-      display: inline-block;
-      position: relative;
-    }
-    svg {
-      vertical-align: middle;
-      margin-right: 0.5rem;
-    }
-    &-label {
-      display: inline-block;
-      &:after {
-        width: 100%;
-        height: 1px;
-        content: '';
-        display: block;
-        margin-top: 2px;
-        background-color: #111;
-        animation-name: none;
-      }
-    }
-    a:hover & {
-      &-label:after {
-        @include animateCrossUnderline(0.4s, both);
-      }
     }
   }
 }
