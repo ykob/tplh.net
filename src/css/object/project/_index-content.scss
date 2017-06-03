@@ -43,11 +43,6 @@
         background-color: #111;
         animation-name: none;
       }
-      &:hover {
-        &:after {
-          @include animateCrossUnderline(0.4s, both);
-        }
-      }
     }
   }
   &__contact {
@@ -83,6 +78,25 @@
     &-wrap:hover & {
       &-label:after {
         @include animateCrossUnderline(0.4s, both);
+      }
+    }
+  }
+  //
+  // Interaction
+  //
+  transition-duration: 0.8s;
+  transition-timing-function: $easeOutCirc;
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.2);
+  }
+  &__link {
+    a {
+      &:hover {
+        &:after {
+          @include animateCrossUnderline(0.4s, both);
+        }
       }
     }
   }

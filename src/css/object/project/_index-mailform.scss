@@ -1,0 +1,48 @@
+.p-index-mailform {
+  width: 100%;
+  max-width: 540px;
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  textarea {
+    line-height: 1.75;
+    height: 1.75 * 5em;
+  }
+  &__row {
+    position: relative;
+    margin-bottom: 1em;
+  }
+  &__input {
+    width: 100%;
+    display: block;
+    padding-bottom: 0.75em;
+    border: 0;
+    letter-spacing: 0.3em;
+    background-color: rgba(255, 255, 255, 0);
+    &:focus {
+      outline: 0;
+    }
+  }
+  &__line {
+    height: 1px;
+    position: absolute;
+    right: 0; bottom: 0; left: 0;
+    background-color: #000;
+  }
+  &__input:focus + &__line {
+  }
+  //
+  // Interaction
+  //
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition-duration: 0.8s;
+  transition-timing-function: $easeOutCirc;
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+}

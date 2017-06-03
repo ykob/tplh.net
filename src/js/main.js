@@ -1,6 +1,7 @@
 import ConsoleSignature from './modules/ConsoleSignature.js';
 import PostEffect from './modules/PostEffect.js';
 import Plane from './modules/Plane.js';
+import buildIndexContent from './modules/buildIndexContent.js';
 
 const consoleSignature = new ConsoleSignature();
 
@@ -55,5 +56,6 @@ const init = () => {
   on();
   resizeWindow();
   renderLoop();
+  buildIndexContent();
 }
 init();

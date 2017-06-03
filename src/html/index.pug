@@ -43,29 +43,60 @@ html(lang="ja")
         h2.p-index-header__url
           |www.tplh.net
 
-      .p-index-content
-        p.p-index-content__excerpt
-          |I am a front-end developer.
-          |I wanna be a creative coder.
-        .p-index-content__link
-          a(href="http://ykob.github.io/sketch-threejs/")
-            |Sketch
-          a(href="http://codepen.io/ykob/")
-            |CodePen
-          a(href="https://github.com/ykob")
-            |GitHub
-          a(href="https://www.facebook.com/ykob1984")
-            |Facebook
-          a(href="https://twitter.com/ykob0123")
-            |Twitter
-        .p-index-content__contact
-          .p-index-content__contact-wrap
-            svg(xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 14 14")
-              g
-                path(d="M7 9L5.268 7.484.316 11.73c.18.166.423.27.69.27h11.987c.267 0 .51-.104.688-.27L8.733 7.483 7 9z")
-                path(d="M13.684 2.27c-.18-.167-.422-.27-.69-.27H1.006c-.267 0-.51.104-.69.273L7 8l6.684-5.73zM0 2.878v8.308L4.833 7.08M9.167 7.08L14 11.185v-8.31")
-            span.p-index-content__contact-label
-              |Contact Me.
+      .p-index-page__in#index-content
+        .p-index-content(
+          :class = '{ "is-hidden" : isVisibleForm }'
+          )
+          p.p-index-content__excerpt
+            |I am a front-end developer.
+            |I wanna be a creative coder.
+          .p-index-content__link
+            a(href="http://ykob.github.io/sketch-threejs/")
+              |Sketch
+            a(href="http://codepen.io/ykob/")
+              |CodePen
+            a(href="https://github.com/ykob")
+              |GitHub
+            a(href="https://www.facebook.com/ykob1984")
+              |Facebook
+            a(href="https://twitter.com/ykob0123")
+              |Twitter
+          .p-index-content__contact
+            .p-index-content__contact-wrap
+              svg(xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 14 14")
+                g
+                  path(d="M7 9L5.268 7.484.316 11.73c.18.166.423.27.69.27h11.987c.267 0 .51-.104.688-.27L8.733 7.483 7 9z")
+                  path(d="M13.684 2.27c-.18-.167-.422-.27-.69-.27H1.006c-.267 0-.51.104-.69.273L7 8l6.684-5.73zM0 2.878v8.308L4.833 7.08M9.167 7.08L14 11.185v-8.31")
+              span.p-index-content__contact-label(
+                @click = 'openForm'
+                )
+                |Contact Me.
+
+        .p-index-mailform(
+          :class = '{ "is-visible" : isVisibleForm }'
+          )
+          form(action="sendmail.php")
+            .p-index-mailform__row
+              input.p-index-mailform__input(
+                type="text", name="yourName", placeholder="name")
+              .p-index-mailform__line
+            .p-index-mailform__row
+              input.p-index-mailform__input(
+                type="text", name="yourMail", placeholder="mail address")
+              .p-index-mailform__line
+            .p-index-mailform__row
+              textarea.p-index-mailform__input(
+                name="contents", cols="30", rows="10")
+              .p-index-mailform__line
+            button(
+              type = 'button',
+              @click = 'closeForm'
+              )
+              |Back
+            button(
+              type = 'submit'
+              )
+              |Submit
 
     canvas(id="canvas-webgl", class="p-canvas-webgl")
     script(src="./js/vendor.js")
