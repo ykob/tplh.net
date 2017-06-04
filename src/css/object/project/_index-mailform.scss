@@ -34,9 +34,14 @@
     height: 1px;
     position: absolute;
     right: 0; bottom: 0; left: 0;
-    background-color: #000;
-  }
-  &__input:focus + &__line {
+    background-color: #ccc;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: #444;
+    }
   }
   &__btn-wrap {
     display: flex;
@@ -83,12 +88,25 @@
     pointer-events: auto;
     transform: scale(1);
   }
+  &__line {
+    &:after {
+      transform: scaleX(0);
+      transform-origin: right;
+      transition-duration: 0.8s;
+      transition-timing-function: $easeOutCirc;
+      transition-property: transform;
+    }
+  }
+  &__input:focus + &__line:after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
   &__btn {
     overflow: hidden;
     &:after {
       transform: skewX(33deg) scaleX(0);
       transform-origin: right;
-      transition-duration: 0s;
+      transition-duration: 0.8s;
       transition-timing-function: $easeOutCirc;
       transition-property: transform;
     }
@@ -96,14 +114,6 @@
       &:after {
         transform: skewX(33deg) scaleX(1);
         transform-origin: left;
-        transition-duration: 0.8s;
-      }
-    }
-    &.is-leave {
-      &:after {
-        transform: skewX(33deg) scaleX(0);
-        transform-origin: right;
-        transition-duration: 0.8s;
       }
     }
   }
