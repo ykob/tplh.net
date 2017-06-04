@@ -22,17 +22,37 @@ export default () => {
           error: []
         },
       },
+      xhr: new XMLHttpRequest(),
       isVisibleForm: false,
       hasAlreadySent: false,
     },
     mounted: function() {
       this.initForm();
+      this.xhr.onreadystatechange = () => {
+        switch (this.xhr.readyState) {
+          case 0: // 未初期化状態.
+            break;
+          case 1: // データ送信中.
+            break;
+          case 2: // 応答待ち.
+            break;
+          case 3: // データ受信中.
+            break;
+          case 4: // データ受信完了.
+            if (this.xhr.status == 200 || this.xhr.status == 304) {
+              this.completeAjax();
+            } else {
+            }
+            break;
+        }
+      };
     },
     methods: {
       openForm: function() {
         this.isVisibleForm = true;
       },
       closeForm: function() {
+        this.initForm();
         this.isVisibleForm = false;
         this.hasAlreadySent = false;
       },
@@ -89,24 +109,21 @@ export default () => {
           errorCount += this.input[key].error.length;
         }
         if (errorCount == 0) {
+          const formData = new FormData();
+          for (var key in this.input) {
+            formData.append(key, this.input[key].value);
+          }
+          this.xhr.open('POST', '/sendmail.php');
+          this.xhr.send(formData);
+        }
+      },
+      completeAjax: function() {
           this.initForm();
           this.hasAlreadySent = true;
           setTimeout(() => {
             this.hasAlreadySent = false;
           }, 3000);
-        } else {
-
-        }
-        // $.ajax({
-        //   url: '/sendmail.php',
-        //   type: 'POST',
-        //   data: $(id).serialize()
-        // })
-        // .done(() => {
-        // })
-        // .fail((data) => {
-        // });
-      },
+      }
     }
   })
 }
