@@ -78,25 +78,32 @@ html(lang="ja")
           form(action="sendmail.php")
             .p-index-mailform__row
               input.p-index-mailform__input(
-                type="text", name="yourName", placeholder="name")
+                type="text", name="yourName", placeholder="name",
+                v-model = 'input.name'
+                )
               .p-index-mailform__line
             .p-index-mailform__row
               input.p-index-mailform__input(
-                type="text", name="yourMail", placeholder="mail address")
+                type="text", name="yourMail", placeholder="mail address",
+                v-model = 'input.mail'
+                )
               .p-index-mailform__line
             .p-index-mailform__row
-              textarea.p-index-mailform__input(
-                name="contents", cols="30", rows="10")
+              textarea.p-index-mailform__input.p-index-mailform__textarea(
+                name="contents", cols="30", rows="10",
+                v-model = 'input.content'
+                )
               .p-index-mailform__line
-            button(
-              type = 'button',
-              @click = 'closeForm'
-              )
-              |Back
-            button(
-              type = 'submit'
-              )
-              |Submit
+            .p-index-mailform__btn-wrap
+              button.p-index-mailform__btn(
+                type = 'button',
+                @click = 'closeForm'
+                )
+                |Back
+              button.p-index-mailform__btn(
+                type = 'submit'
+                )
+                |Submit
 
     canvas(id="canvas-webgl", class="p-canvas-webgl")
     script(src="./js/vendor.js")

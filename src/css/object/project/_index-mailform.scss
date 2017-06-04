@@ -5,10 +5,6 @@
   top: 0; right: 0; left: 0;
   margin-right: auto;
   margin-left: auto;
-  textarea {
-    line-height: 1.75;
-    height: 1.75 * 5em;
-  }
   &__row {
     position: relative;
     margin-bottom: 1em;
@@ -18,11 +14,21 @@
     display: block;
     padding-bottom: 0.75em;
     border: 0;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     background-color: rgba(255, 255, 255, 0);
+    @include l-more-than-mobile {
+      @include fontSize(16);
+    }
+    @include l-mobile {
+      @include fontSize(14);
+    }
     &:focus {
       outline: 0;
     }
+  }
+  &__textarea {
+    line-height: 1.75;
+    height: 1.75 * 5em;
   }
   &__line {
     height: 1px;
@@ -31,6 +37,26 @@
     background-color: #000;
   }
   &__input:focus + &__line {
+  }
+  &__btn-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  &__btn {
+    width: 8em;
+    display: block;
+    margin: 0 0.5em;
+    padding:0.75em 0;
+    border: 0;
+    letter-spacing: 0.2em;
+    color: #fff;
+    background-color: #444;
+    @include l-more-than-mobile {
+      @include fontSize(16);
+    }
+    @include l-mobile {
+      @include fontSize(14);
+    }
   }
   //
   // Interaction
