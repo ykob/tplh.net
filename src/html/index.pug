@@ -95,15 +95,17 @@ html(lang="ja")
                 )
               .p-index-mailform__line
             .p-index-mailform__btn-wrap
-              button.p-index-mailform__btn(
+              button.p-index-mailform__btn.js-hover(
                 type = 'button',
                 @click = 'closeForm'
                 )
-                |Back
-              button.p-index-mailform__btn(
+                .p-index-mailform__btn-label
+                  |Back
+              button.p-index-mailform__btn.js-hover(
                 type = 'submit'
                 )
-                |Submit
+                .p-index-mailform__btn-label
+                  |Submit
 
     canvas(id="canvas-webgl", class="p-canvas-webgl")
     script(src="./js/vendor.js")
