@@ -5,6 +5,7 @@
   top: 0; right: 0; left: 0;
   margin-right: auto;
   margin-left: auto;
+  letter-spacing: 0.2rem;
   &__row {
     position: relative;
     margin-bottom: 1em;
@@ -12,7 +13,7 @@
   &__input {
     width: 100%;
     display: block;
-    padding-bottom: 0.75em;
+    padding: 0.5em 0;
     border: 0;
     letter-spacing: 0.2em;
     background-color: rgba(255, 255, 255, 0);
@@ -25,6 +26,9 @@
     &:focus {
       outline: 0;
     }
+    &.has-errors {
+      background-color: rgba(255, 0, 0, 0.1);
+    }
   }
   &__textarea {
     line-height: 1.75;
@@ -32,8 +36,7 @@
   }
   &__line {
     height: 1px;
-    position: absolute;
-    right: 0; bottom: 0; left: 0;
+    position: relative;
     background-color: #ccc;
     &:after {
       content: '';
@@ -41,6 +44,17 @@
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
       background-color: #444;
+    }
+  }
+  &__errors {
+    margin-top: 0.5em;
+    color: #c44;
+    text-align: left;
+    @include l-more-than-mobile {
+      @include fontSize(12);
+    }
+    @include l-mobile {
+      @include fontSize(10);
     }
   }
   &__btn-wrap {
@@ -75,6 +89,9 @@
       background-color: #999;
     }
   }
+  &__thanks {
+    margin-top: 1em;
+  }
   //
   // Interaction
   //
@@ -103,6 +120,11 @@
   }
   &__btn {
     overflow: hidden;
+    transition-duration: 0.8s;
+    transition-timing-function: $easeOutCirc;
+    &:disabled {
+      background-color: #ccc;
+    }
     &:after {
       transform: skewX(33deg) scaleX(0);
       transform-origin: right;
@@ -115,6 +137,15 @@
         transform: skewX(33deg) scaleX(1);
         transform-origin: left;
       }
+    }
+  }
+  &__thanks {
+    opacity: 0;
+    transition-duration: 0.8s;
+    transition-timing-function: $easeOutCirc;
+    transition-property: opacity;
+    &.is-visible {
+      opacity: 1;
     }
   }
 }

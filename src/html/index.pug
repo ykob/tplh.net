@@ -79,21 +79,42 @@ html(lang="ja")
             .p-index-mailform__row
               input.p-index-mailform__input(
                 type="text", name="yourName", placeholder="name",
-                v-model = 'input.name'
+                v-model = 'input.name.value',
+                :class = '{ "has-errors" : input.name.validation === false }'
+                @focusout = 'validate("name")',
                 )
               .p-index-mailform__line
+              .p-index-mailform__errors(
+                v-if = 'input.name.validation === false'
+                )
+                span(v-for="item in input.name.error")
+                  |{{ item }}
             .p-index-mailform__row
               input.p-index-mailform__input(
-                type="text", name="yourMail", placeholder="mail address",
-                v-model = 'input.mail'
+                type="text", name="yourMail", placeholder="email address",
+                v-model = 'input.mail.value',
+                :class = '{ "has-errors" : input.mail.validation === false }'
+                @focusout = 'validate("mail")',
                 )
               .p-index-mailform__line
+              .p-index-mailform__errors(
+                v-if = 'input.mail.validation === false'
+                )
+                span(v-for="item in input.mail.error")
+                  |{{ item }}
             .p-index-mailform__row
               textarea.p-index-mailform__input.p-index-mailform__textarea(
                 name="contents", cols="30", rows="10",
-                v-model = 'input.content'
+                v-model = 'input.content.value',
+                :class = '{ "has-errors" : input.content.validation === false }'
+                @focusout = 'validate("content")',
                 )
               .p-index-mailform__line
+              .p-index-mailform__errors(
+                v-if = 'input.content.validation === false'
+                )
+                span(v-for="item in input.content.error")
+                  |{{ item }}
             .p-index-mailform__btn-wrap
               button.p-index-mailform__btn.js-hover(
                 type = 'button',
@@ -102,10 +123,15 @@ html(lang="ja")
                 .p-index-mailform__btn-label
                   |Back
               button.p-index-mailform__btn.js-hover(
-                type = 'submit'
+                type = 'button',
+                @click = 'submit',
                 )
                 .p-index-mailform__btn-label
                   |Submit
+            .p-index-mailform__thanks(
+              :class = '{ "is-visible" : hasAlreadySent }'
+              )
+              |thanks for message !
 
     canvas(id="canvas-webgl", class="p-canvas-webgl")
     script(src="./js/vendor.js")
