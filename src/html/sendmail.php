@@ -37,7 +37,7 @@
     $subject_admin = "[www.tplh.net] message from $name";
 
     // Build the email content.
-    $email_content_admin .= "you received a new message from the website.\n\n";
+    $email_content_admin .= "you received a new message from website.\n\n";
     $email_content_admin .= $email_content;
 
     // Build the email headers.
@@ -54,7 +54,7 @@
     $subject_user = "[www.tplh.net] thanks for message.";
 
     // Build the email content.
-    $email_content_user .= "Dear $name.\n\nyou sent message successfully.\n\n";
+    $email_content_user .= "Hi $name.\n\nyou sent message successfully.\n\n";
     $email_content_user .= "$email_content\n";
 
     // Build the email headers.
