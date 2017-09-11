@@ -104,7 +104,7 @@ html(lang="ja")
                   |{{ item }}
             .p-index-mailform__row
               textarea.p-index-mailform__input.p-index-mailform__textarea(
-                name="contents", cols="30", rows="10",
+                name="contents", cols="30", rows="10", placeholder="email content",
                 v-model = 'input.content.value',
                 :class = '{ "has-errors" : input.content.validation === false }'
                 @focusout = 'validate("content")',
