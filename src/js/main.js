@@ -1,15 +1,12 @@
-import ScrollManager from './modules/SmoothScrollManager';
-import Pjax from './modules/Pjax';
-
-const scrollManager = new ScrollManager();
-const pjax = new Pjax(scrollManager);
+const pageId = document.querySelector('.l-page').getAttribute('data-page-id');
 
 const init = () => {
-  pjax.elmProgress.classList.add('is-shown');
-  setTimeout(() => {
-    scrollManager.start(() => {
-      pjax.onLoad();
-    });
-  }, 500);
+  require ('./init/common.js').default();
+  switch (pageId) {
+    case 'index':
+      require ('./init/index.js').default();
+      break;
+    default:
+  }
 }
 init();

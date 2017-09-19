@@ -7,14 +7,12 @@ body {
   font-family: $font-ja;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'palt';
-  letter-spacing: 0.08em;
-  background-color: #111;
+  // font-feature-settings: 'palt';
 }
 img {
   vertical-align: top;
 }
-input, button, select {
+input[type=text], button, select, textarea {
   appearance: none;
   border-radius: 0;
 }
@@ -29,4 +27,13 @@ input::selection,
 textarea::selection {
   color: $color-text-black;
   background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-input-placeholder {
+  color: #666;
+}
+::-moz-placeholder {
+  color: #666;
+}
+:-ms-input-placeholder {
+  color: #666;
 }

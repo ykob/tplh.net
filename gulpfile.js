@@ -11,7 +11,8 @@ requireDir('./gulp/tasks');
 gulp.task('predefault', cb => {
   runSequence(
     'cleanDest',
-    ['pug', 'sass', 'watchify', 'vendorScripts', 'copyToDest'],
+    'sprite',
+    ['pug', 'sass', 'watchify', 'copyToDest'],
     'serve',
     cb
   );
@@ -20,7 +21,7 @@ gulp.task('predefault', cb => {
 gulp.task('default', ['predefault'], () => {
   gulp.watch(
     [`./${DIR.SRC}/**/*.pug`],
-    ['pug', reload]
+    reload
   );
 
   gulp.watch(
@@ -32,18 +33,28 @@ gulp.task('default', ['predefault'], () => {
     [`./${DIR.DEST}/**/*.js`],
     reload
   );
+
+  gulp.watch(
+    [
+      `./${DIR.SRC}/img/**/*.*`,
+      `./${DIR.SRC}/font/**/*.*`,
+    ],
+    ['copyToDest', reload]
+  );
 });
 
 gulp.task('build', cb => {
   runSequence(
     'cleanDest',
-    ['pug', 'sass', 'browserify', 'vendorScripts', 'copyToDest'],
+    'sprite',
+    ['pug', 'sass', 'browserify', 'copyToDest'],
     'cleanBuild',
     'replaceHtml',
     'cleanCss',
     'imagemin',
     'uglify',
     ['copyToBuild', 'copyPhpToBuild'],
+    'sitemap',
     cb
   );
 });
