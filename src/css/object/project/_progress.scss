@@ -1,0 +1,67 @@
+@keyframes animateProgress {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(225deg);
+  }
+}
+
+.p-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 1000;
+  pointer-events: none;
+  &__marker {
+    @include l-more-than-mobile {
+      width: 40px;
+      height: 40px;
+    }
+    @include l-mobile {
+      width: 24px;
+      height: 24px;
+    }
+    &:after {
+      content: '';
+      display: block;
+      border: 2px solid #fff;
+      animation-name: animateProgress;
+      animation-duration: 0.6s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      @include l-more-than-mobile {
+        width: 40px;
+        height: 40px;
+      }
+      @include l-mobile {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  //
+  // Interaction
+  //
+  &__marker {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.5);
+    transition-duration: 0.2s;
+  }
+  &.is-shown & {
+    &__marker {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      transition-timing-function: $easeOutCubic;
+    }
+  }
+  &.is-hidden & {
+    &__marker {
+      opacity: 0;
+      transform: translateX(60px) scale(0.5);
+      transition-timing-function: $easeInCubic;
+    }
+  }
+}

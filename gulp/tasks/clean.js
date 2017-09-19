@@ -4,7 +4,7 @@ const del = require('del');
 const conf = require('../conf').clean;
 
 gulp.task('cleanDest', cb => {
-  del(conf.dst.path).then(() => {
+  del(conf.dest.path).then(() => {
     cb();
   });
 });
